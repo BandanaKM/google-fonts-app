@@ -8,7 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <div>Hi</div>
          <LeftPanel />
          <FontForm />
          <RightPanel />
