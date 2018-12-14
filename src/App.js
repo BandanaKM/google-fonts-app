@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import LeftPanel from './LeftPanel';
+import FontForm from './FontForm';
 import RightPanel from './RightPanel';
 
 class App extends Component {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
          <div>Hi</div>
          <LeftPanel />
+         <FontForm />
          <RightPanel />
       </div>
     );
