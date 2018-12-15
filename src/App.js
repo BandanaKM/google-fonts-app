@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
 import LeftPanel from './LeftPanel';
-import FontForm from './FontForm';
+import FontFormList from './FontFormList';
 import RightPanel from './RightPanel';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      formEntries: [
+        {
+          text: 'Sample text',
+        },
+        {
+          text: 'Sample text',
+        },
+        {
+          text: 'Sample text',
+        },
+      ]
+    };
+  }
+
   render() {
     return (
       <div className="App">
          <LeftPanel />
-         <FontForm />
+         <FontFormList formEntries={this.state.formEntries} />
          <RightPanel />
       </div>
     );
