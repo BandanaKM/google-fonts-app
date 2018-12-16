@@ -1,3 +1,5 @@
 .LeftPanel {
-  color: pink;
+  color: blue;
+  display: flex;
+  flex-direction: column;
 }

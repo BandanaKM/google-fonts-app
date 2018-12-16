@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './styles.css';
-import Properties from './Properties';
 import Classification from './Classification';
+import FontFamily from './FontFamily';
+import FontVariants from './FontVariants';
 
 class RightPanel extends Component {
   render() {
     return (
       <div className="RightPanel">
         <p>Right panel</p>
-        <Properties />
         <Classification />
+        <FontFamily />
+        <FontVariants />
       </div>
     )
   }

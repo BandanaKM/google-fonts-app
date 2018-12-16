@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './styles.css';
 
-class Properties extends Component {
+class FontVariants extends Component {
   render() {
     return(
       <div className="properties">
-        <h4>Properties</h4>
+        <h4>Font Variants</h4>
         <select name="property" className="propertiesSelect">
         <option value="regular">regular</option>
         <option value="bold">bold</option>
@@ -16,4 +16,4 @@ class Properties extends Component {
   }
 }
 
-export default Properties;
+export default FontVariants;
