@@ -20,7 +20,7 @@ class App extends Component {
       {
         text: 'That is great.',
         isEditing: false,
-      }
+      },
     ]
   }
 
@@ -64,6 +64,14 @@ class App extends Component {
      });
    }
 
+  removeFormEntryAt = index => {
+    this.setState({
+      formEntries: [
+        ...this.state.formEntries.slice(0, index),
+        ...this.state.formEntries.slice(index + 1)
+      ]
+    })
+  }
 
   render() {
     return (
@@ -73,19 +81,9 @@ class App extends Component {
           formEntries={this.state.formEntries}
           toggleIsEditingAt={this.toggleIsEditingAt}
           setFormEntryAt={this.setFormEntryAt}
+          removeFormEntryAt={this.removeFormEntryAt}
           pendingMessage={this.state.pendingMessage}
         />
-        <form onSubmit={this.newMessageSubmitHandler}>
-         <input
-           type="text"
-           onChange={this.handleMessageInput}
-           value={this.state.pendingMessage}
-           placeholder="My Message"
-         />
-         <div className="counter">
-          <button type="submit" name="submit" value="submit">Submit</button>
-         </div>
-       </form>
         <RightPanel />
       </div>
     );
