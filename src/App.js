@@ -4,7 +4,6 @@ import FontFormList from './FontFormList';
 import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
 
-
 class App extends Component {
   state = {
     pendingMessage: "",
@@ -50,20 +49,6 @@ class App extends Component {
        })
    });
 
-   newFormEntrySubmitHandler = e => {
-     e.preventDefault();
-     this.setState({
-       formEntries: [
-         ...this.state.formEntries,
-        {
-          text: this.state.pendingMessage,
-          isEditing: false,
-        }
-       ],
-       pendingMessage: ''
-     });
-   }
-
   removeFormEntryAt = index => {
     this.setState({
       formEntries: [
@@ -71,6 +56,22 @@ class App extends Component {
         ...this.state.formEntries.slice(index + 1)
       ]
     })
+  }
+
+  handleNewFontInput = e => this.setState({pendingMessage: e.target.value});
+
+  newFontSubmitHandler = e => {
+    e.preventDefault();
+    this.setState({
+      formEntries: [
+        ...this.state.formEntries,
+       {
+         text: this.state.pendingMessage,
+         isEditing: false,
+       }
+      ],
+      pendingMessage: ""
+    });
   }
 
   render() {
@@ -84,6 +85,14 @@ class App extends Component {
           removeFormEntryAt={this.removeFormEntryAt}
           pendingMessage={this.state.pendingMessage}
         />
+        <form onSubmit={this.newFontSubmitHandler}>
+          <input
+            type="text"
+            placeholder="My Message"
+            value={this.state.pendingMessage}
+            onChange={this.handleNewFontInput}
+          />
+        </form>
         <RightPanel />
       </div>
     );

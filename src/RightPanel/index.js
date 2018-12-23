@@ -8,7 +8,6 @@ class RightPanel extends Component {
   render() {
     return (
       <div className="RightPanel">
-        <p>Right panel</p>
         <Classification />
         <FontFamily />
         <FontVariants />

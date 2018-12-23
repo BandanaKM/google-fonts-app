@@ -5,11 +5,12 @@ import './styles.css';
 
 class FontForm extends Component {
   render() {
-   const { setFormEntry, entry, handleRemove } = this.props;
+   const { setFormEntry, entry, handleRemove, isEditing } = this.props;
     return (
       <li className="fontForm">
         <EditFont
           handleFormEdits={e => setFormEntry(e.target.value)}
+          isEditing={isEditing}
         >
           {entry}
         </EditFont>
