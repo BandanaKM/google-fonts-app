@@ -5,9 +5,9 @@ class LeftPanel extends Component {
   render() {
     return (
       <div className="LeftPanel">
-        <label for="uname"><b>Username</b></label>
+        <label htmlFor="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" required />
-        <label for="psw"><b>Password</b></label>
+        <label htmlFor="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" required />
         <button type="submit">Login</button>
         <label>

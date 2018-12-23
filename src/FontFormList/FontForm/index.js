@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import EditFont from './EditFont';
 import './styles.css';
 
 class FontForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-  }
-
   render() {
+   const { setFormEntry, entry } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <textarea value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <li className="fontForm">
+        <EditFont handleFormEdits={e => setFormEntry(e.target.value)}>
+          {entry}
+        </EditFont>
+      </li>
     );
   }
 }
+
+FontForm.propTypes = {
+  entry: PropTypes.object,
+  setFormEntry: PropTypes.func,
+  handleToggleEditing: PropTypes.func,
+  newFormEntrySubmitHandler: PropTypes.func,
+}
+
 
 export default FontForm;

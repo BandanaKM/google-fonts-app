@@ -5,11 +5,18 @@ import FontForm from './FontForm';
 
 class FontFormList extends Component {
   render() {
-    const { formEntries } = this.props;
+    const { formEntries, setFormEntryAt, toggleIsEditingAt, newFormEntrySubmitHandler } = this.props;
     return (
       <ul>
         {formEntries.map((entry, index) =>
-          <FontForm key={index} entry={entry.text} />
+          <FontForm
+            key={index}
+            entry={entry}
+            setFormEntry={text => setFormEntryAt(text, index)}
+            handleToggleEditing={() => toggleIsEditingAt(index)}
+            isEditing={entry.isEditing}
+            newFormEntrySubmitHandler={newFormEntrySubmitHandler}
+          />
         )}
       </ul>
     );
@@ -18,6 +25,8 @@ class FontFormList extends Component {
 
 FontFormList.propTypes = {
   formEntries: PropTypes.array,
+  setFormEntryAt: PropTypes.func,
+  toggleIsEditingAt: PropTypes.func,
 }
 
 export default FontFormList;

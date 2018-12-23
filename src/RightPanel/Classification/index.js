@@ -7,27 +7,27 @@ class Classification extends Component {
       <ul className="classificationSelect">
       <li>
           <input type="radio" id="all" name="all" />
-          <label for="all">All</label>
+          <label htmlFor="all">All</label>
       </li>
       <li>
           <input type="radio" id="serif" name="all" />
-          <label for="serif">Serif</label>
+          <label htmlFor="serif">Serif</label>
       </li>
       <li>
           <input type="radio" id="handwriting" name="all" />
-          <label for="handwriting">Handwriting</label>
+          <label htmlFor="handwriting">Handwriting</label>
       </li>
       <li>
           <input type="radio" id="sans-serif" name="all" />
-          <label for="sans-serif">Sans-serif</label>
+          <label htmlFor="sans-serif">Sans-serif</label>
       </li>
       <li>
           <input type="radio" id="display" name="all" />
-          <label for="display">Display</label>
+          <label htmlFor="display">Display</label>
       </li>
       <li>
           <input type="radio" id="monospace" name="all" />
-          <label for="monospace">Monospace</label>
+          <label htmlFor="monospace">Monospace</label>
       </li>
       </ul>
     );
