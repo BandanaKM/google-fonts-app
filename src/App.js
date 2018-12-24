@@ -58,21 +58,22 @@ class App extends Component {
     })
   }
 
-  handleNewFontInput = e => this.setState({pendingMessage: e.target.value});
-
-  newFontSubmitHandler = e => {
-    e.preventDefault();
+  addEntryAfter = index => {
     this.setState({
       formEntries: [
-        ...this.state.formEntries,
-       {
-         text: this.state.pendingMessage,
-         isEditing: false,
-       }
-      ],
-      pendingMessage: ""
-    });
+        ...this.state.formEntries.slice(0, index + 1),
+        this.newFormEntry(),
+        ...this.state.formEntries.slice(index + 1),
+      ]
+    })
   }
+
+  newFormEntry = () => (
+    {
+      text: '',
+      isEditing: false,
+    }
+  )
 
   render() {
     return (
@@ -83,16 +84,9 @@ class App extends Component {
           toggleIsEditingAt={this.toggleIsEditingAt}
           setFormEntryAt={this.setFormEntryAt}
           removeFormEntryAt={this.removeFormEntryAt}
+          addEntryAfter={this.addEntryAfter}
           pendingMessage={this.state.pendingMessage}
         />
-        <form onSubmit={this.newFontSubmitHandler}>
-          <input
-            type="text"
-            placeholder="My Message"
-            value={this.state.pendingMessage}
-            onChange={this.handleNewFontInput}
-          />
-        </form>
         <RightPanel />
       </div>
     );
