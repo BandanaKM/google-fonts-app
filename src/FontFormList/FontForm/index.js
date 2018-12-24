@@ -5,12 +5,17 @@ import './styles.css';
 
 class FontForm extends Component {
   render() {
-   const { setFormEntry, entry } = this.props;
+   const { setFormEntry, entry, handleRemove, handleAdd, isEditing } = this.props;
     return (
       <li className="fontForm">
-        <EditFont handleFormEdits={e => setFormEntry(e.target.value)}>
+        <EditFont
+          handleFormEdits={e => setFormEntry(e.target.value)}
+          isEditing={isEditing}
+        >
           {entry}
         </EditFont>
+        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleRemove}>Delete</button>
       </li>
     );
   }
@@ -21,6 +26,8 @@ FontForm.propTypes = {
   setFormEntry: PropTypes.func,
   handleToggleEditing: PropTypes.func,
   newFormEntrySubmitHandler: PropTypes.func,
+  handleRemove: PropTypes.func,
+  handleAdd: PropTypes.func,
 }
 
 

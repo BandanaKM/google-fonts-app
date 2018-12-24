@@ -4,7 +4,6 @@ import FontFormList from './FontFormList';
 import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
 
-
 class App extends Component {
   state = {
     pendingMessage: "",
@@ -20,7 +19,7 @@ class App extends Component {
       {
         text: 'That is great.',
         isEditing: false,
-      }
+      },
     ]
   }
 
@@ -50,20 +49,31 @@ class App extends Component {
        })
    });
 
-   newFormEntrySubmitHandler = e => {
-     e.preventDefault();
-     this.setState({
-       formEntries: [
-         ...this.state.formEntries,
-        {
-          text: this.state.pendingMessage,
-          isEditing: false,
-        }
-       ],
-       pendingMessage: ''
-     });
-   }
+  removeFormEntryAt = index => {
+    this.setState({
+      formEntries: [
+        ...this.state.formEntries.slice(0, index),
+        ...this.state.formEntries.slice(index + 1)
+      ]
+    })
+  }
 
+  addEntryAfter = index => {
+    this.setState({
+      formEntries: [
+        ...this.state.formEntries.slice(0, index + 1),
+        this.newFormEntry(),
+        ...this.state.formEntries.slice(index + 1),
+      ]
+    })
+  }
+
+  newFormEntry = () => (
+    {
+      text: '',
+      isEditing: false,
+    }
+  )
 
   render() {
     return (
@@ -73,19 +83,10 @@ class App extends Component {
           formEntries={this.state.formEntries}
           toggleIsEditingAt={this.toggleIsEditingAt}
           setFormEntryAt={this.setFormEntryAt}
+          removeFormEntryAt={this.removeFormEntryAt}
+          addEntryAfter={this.addEntryAfter}
           pendingMessage={this.state.pendingMessage}
         />
-        <form onSubmit={this.newMessageSubmitHandler}>
-         <input
-           type="text"
-           onChange={this.handleMessageInput}
-           value={this.state.pendingMessage}
-           placeholder="My Message"
-         />
-         <div className="counter">
-          <button type="submit" name="submit" value="submit">Submit</button>
-         </div>
-       </form>
         <RightPanel />
       </div>
     );
