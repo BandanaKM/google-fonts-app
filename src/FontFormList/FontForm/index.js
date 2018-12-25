@@ -5,15 +5,17 @@ import './styles.css';
 
 class FontForm extends Component {
   render() {
-   const { setFormEntry, entry, handleRemove, handleAdd, isEditing } = this.props;
+   const { setFormEntry, entry, handleRemove, handleAdd, isEditing, handleActive } = this.props;
     return (
-      <li className="fontForm">
+      <li className="fontForm" >
         <EditFont
           handleFormEdits={e => setFormEntry(e.target.value)}
           isEditing={isEditing}
+          handleActive={handleActive}
         >
           {entry}
         </EditFont>
+        { entry.isActive ? '*' : null}
         <button onClick={handleAdd}>Add</button>
         <button onClick={handleRemove}>Delete</button>
       </li>
@@ -28,6 +30,7 @@ FontForm.propTypes = {
   newFormEntrySubmitHandler: PropTypes.func,
   handleRemove: PropTypes.func,
   handleAdd: PropTypes.func,
+  handleActive: PropTypes.func,
 }
 
 

@@ -10,31 +10,21 @@ class App extends Component {
     formEntries: [
       {
         text: 'Hey Bana, how are you doing?',
-        isEditing: false,
+        isActive: true,
+        classification: "all"
       },
       {
         text: 'I am doing well, actually.',
-        isEditing: false,
+        isActive: false,
+        classification: "all"
       },
       {
         text: 'That is great.',
-        isEditing: false,
+        isActive: false,
+        classification: "all"
       },
     ]
   }
-
-  toggleIsEditingAt = (isEditing, indexToChange) =>
-   this.setState({
-     messages: this.state.formEntries.map((formEntry, index) => {
-       if (index === indexToChange) {
-         return {
-           ...formEntry,
-           isEditing: !formEntry[isEditing]
-         };
-       }
-        return formEntry;
-     })
-   });
 
    setFormEntryAt = (text, indexToChange) =>
      this.setState({
@@ -71,9 +61,41 @@ class App extends Component {
   newFormEntry = () => (
     {
       text: '',
-      isEditing: false,
+      isActive: false,
     }
   )
+
+  setActive = indexToChange => {
+    this.setState({
+      formEntries: this.state.formEntries.map((formEntry, index) => {
+        if (index === indexToChange) {
+          return {
+            ...formEntry,
+            isActive: true
+          }
+        }
+        return {
+          ...formEntry,
+          isActive: false,
+        }
+      })
+    })
+  }
+
+  setClassification = (classificationValue) => {
+    this.setState({
+      formEntries: this.state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          console.log('IF IS ACTIVE', formEntry.isActive);
+          return {
+            ...formEntry,
+            classification: classificationValue
+          }
+        }
+        return formEntry;
+      })
+    })
+  }
 
   render() {
     return (
@@ -86,8 +108,12 @@ class App extends Component {
           removeFormEntryAt={this.removeFormEntryAt}
           addEntryAfter={this.addEntryAfter}
           pendingMessage={this.state.pendingMessage}
+          setActive={this.setActive}
         />
-        <RightPanel />
+        <RightPanel
+          formEntries={this.state.formEntries}
+          setClassification={this.setClassification}
+        />
       </div>
     );
   }

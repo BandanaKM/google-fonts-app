@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class EditFont extends Component {
   render(){
-    const { handleFormEdits, children } = this.props;
+    const { handleFormEdits, children, handleActive } = this.props;
     return (
-        <div>
+        <div onClick={handleActive}>
           <input type="text" value={children.text} onChange={handleFormEdits} />
         </div>
     );
@@ -14,6 +14,7 @@ class EditFont extends Component {
 
 EditFont.propTypes = {
   handleFormEdits: PropTypes.func,
+  handleActive: PropTypes.func,
 }
 
 export default EditFont;
