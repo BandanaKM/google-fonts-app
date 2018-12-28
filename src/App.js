@@ -11,17 +11,20 @@ class App extends Component {
       {
         text: 'Hey Bana, how are you doing?',
         isActive: true,
-        classification: "all"
+        classification: "",
+        fontVariant: ""
       },
       {
         text: 'I am doing well, actually.',
         isActive: false,
-        classification: "all"
+        classification: "",
+        fontVariant: ""
       },
       {
         text: 'That is great.',
         isActive: false,
-        classification: "all"
+        classification: "",
+        fontVariant: ""
       },
     ]
   }
@@ -71,7 +74,7 @@ class App extends Component {
         if (index === indexToChange) {
           return {
             ...formEntry,
-            isActive: true
+            isActive: true,
           }
         }
         return {
@@ -86,10 +89,23 @@ class App extends Component {
     this.setState({
       formEntries: this.state.formEntries.map(formEntry => {
         if (formEntry.isActive) {
-          console.log('IF IS ACTIVE', formEntry.isActive);
           return {
             ...formEntry,
             classification: classificationValue
+          }
+        }
+        return formEntry;
+      })
+    })
+  }
+
+  setFontVariant = (fontVariantValue) => {
+    this.setState({
+      formEntries: this.state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          return {
+            ...formEntry,
+            fontVariant: fontVariantValue,
           }
         }
         return formEntry;
@@ -113,6 +129,7 @@ class App extends Component {
         <RightPanel
           formEntries={this.state.formEntries}
           setClassification={this.setClassification}
+          setFontVariant={this.setFontVariant}
         />
       </div>
     );

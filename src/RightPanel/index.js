@@ -8,7 +8,7 @@ import FontVariants from './FontVariants';
 
 class RightPanel extends Component {
   render() {
-    const { formEntries, setClassification } = this.props;
+    const { formEntries, setClassification, setFontVariant } = this.props;
     return (
       <div className="RightPanel">
         <Classification
@@ -16,7 +16,10 @@ class RightPanel extends Component {
           setClassification={setClassification}
         />
         <FontFamily />
-        <FontVariants />
+        <FontVariants
+          activeFormEntry={formEntries.find(formEntry => formEntry.isActive)}
+          setFontVariant={setFontVariant}
+        />
       </div>
     )
   }
@@ -25,6 +28,7 @@ class RightPanel extends Component {
 RightPanel.propTypes = {
   formEntries: PropTypes.array,
   setClassification: PropTypes.func,
+  setFontVariant: PropTypes.func,
 }
 
 export default RightPanel;

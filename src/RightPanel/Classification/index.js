@@ -24,7 +24,6 @@ const options = [
 ]
 
 class Classification extends Component {
-
  renderListItem = (id, displayText, selectedValue) =>
   (<li key={id} onClick={() => { this.props.setClassification(id) }}>
       <input type="radio" id={id} name="classification" checked={selectedValue === id} />
