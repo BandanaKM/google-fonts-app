@@ -5,10 +5,11 @@ import './styles.css';
 import Classification from './Classification';
 import FontFamily from './FontFamily';
 import FontVariants from './FontVariants';
+import FontSize from './FontSize';
 
 class RightPanel extends Component {
   render() {
-    const { formEntries, setClassification, setFontVariant, setFontFamily } = this.props;
+    const { formEntries, setClassification, setFontVariant, setFontFamily, setFontSize } = this.props;
     const activeFormEntry = formEntries.find(formEntry => formEntry.isActive);
     return (
       <div className="RightPanel">
@@ -23,6 +24,10 @@ class RightPanel extends Component {
         <FontVariants
           activeFormEntry={activeFormEntry}
           setFontVariant={setFontVariant}
+        />
+        <FontSize
+          activeFormEntry={activeFormEntry}
+          setFontSize={setFontSize}
         />
       </div>
     )
