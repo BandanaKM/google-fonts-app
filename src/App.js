@@ -13,21 +13,24 @@ class App extends Component {
         isActive: true,
         classification: "",
         fontVariant: "",
-        fontFamily: ""
+        fontFamily: "",
+        fontSize: 10,
       },
       {
         text: 'I am doing well, actually.',
         isActive: false,
         classification: "",
         fontVariant: "",
-        fontFamily: ""
+        fontFamily: "",
+        fontSize: 12,
       },
       {
         text: 'That is great.',
         isActive: false,
         classification: "",
         fontVariant: "",
-        fontFamily: ""
+        fontFamily: "",
+        fontSize: 12,
       },
     ]
   }
@@ -130,6 +133,20 @@ class App extends Component {
     })
   }
 
+  setFontSize = (fontSizeValue) => {
+    this.setState({
+      formEntries: this.state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          return {
+            ...formEntry,
+            fontSize: fontSizeValue,
+          }
+        }
+        return formEntry;
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -148,6 +165,7 @@ class App extends Component {
           setClassification={this.setClassification}
           setFontVariant={this.setFontVariant}
           setFontFamily={this.setFontFamily}
+          setFontSize={this.setFontSize}
         />
       </div>
     );
