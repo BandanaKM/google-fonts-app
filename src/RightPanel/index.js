@@ -6,6 +6,7 @@ import Classification from './Classification';
 import FontFamily from './FontFamily';
 import FontVariants from './FontVariants';
 import FontSize from './FontSize';
+import TextColor from './TextColor';
 
 class RightPanel extends Component {
   render() {
