@@ -6,7 +6,7 @@ import Classification from './Classification';
 import FontFamily from './FontFamily';
 import FontVariants from './FontVariants';
 import FontSize from './FontSize';
-import TextColor from './TextColor';
+import ColorPicker from './ColorPicker';
 
 class RightPanel extends Component {
   render() {
@@ -30,6 +30,8 @@ class RightPanel extends Component {
           activeFormEntry={activeFormEntry}
           setFontSize={setFontSize}
         />
+        <ColorPicker textColor />
+        <ColorPicker />
       </div>
     )
   }
