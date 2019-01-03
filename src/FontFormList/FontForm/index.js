@@ -12,6 +12,7 @@ class FontForm extends Component {
           handleFormEdits={e => setFormEntry(e.target.value)}
           isEditing={isEditing}
           handleActive={handleActive}
+          fontFamily={entry.fontFamily}
         >
           {entry}
         </EditFont>

@@ -7,6 +7,19 @@ import RightPanel from './RightPanel';
 class App extends Component {
   state = {
     pendingMessage: "",
+    configuration: [
+      {
+       id: 'Cantora One',
+       displayText: 'Cantora One'
+      },
+      {
+       id: "Oswald",
+       displayText: "Oswald"
+      },
+      {id: "Playfair Display",
+       displayText: "Playfair Display"
+      },
+    ],
     formEntries: [
       {
         text: 'Hey Bana, how are you doing?',
@@ -169,6 +182,7 @@ class App extends Component {
           setFontVariant={this.setFontVariant}
           setFontFamily={this.setFontFamily}
           setFontSize={this.setFontSize}
+          configuration={this.state.configuration}
         />
       </div>
     );

@@ -16,7 +16,7 @@ const options = [
 
 class FontVariants extends Component {
   renderOption = (id, selectedOption) => (
-    <option value={id} selected={selectedOption === id}>{id}</option>
+    <option key={id} value={id} selected={selectedOption === id}>{id}</option>
   )
   render() {
     const { activeFormEntry, setFontVariant } = this.props;

@@ -2,32 +2,30 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const options = [
-  {
-   id: "arial",
-   displayText: "arial"
-  },
-  {
-   id: "times new roman",
-   displayText: "times new roman"
-  },
-  {id: "garamond",
-   displayText: "garamond"
-  },
-]
-
 class FontFamily extends Component {
+  state = {
+    stylePath: 'https://fonts.googleapis.com/css?family=',
+  }
+
   renderOption = (id, selectedOption) => (
-    <option value={id} selected={selectedOption === id}>{id}</option>
+    <option key={id} value={id} selected={selectedOption === id}>{id}</option>
   )
+
+  handleSelectionChange = (e) => {
+    this.props.setFontFamily(e.target.value);
+    this.setState({
+      stylePath: `https://fonts.googleapis.com/css?family=${e.target.value}`
+    })
+  }
+
   render() {
-    const { activeFormEntry, setFontFamily } = this.props;
-    const selectedOption = activeFormEntry.fontFamily || "arial";
+    const { activeFormEntry, configuration } = this.props;
+    const selectedOption = activeFormEntry.fontFamily || "Cantora+One";
     return(
       <div className="classification">
         <h4>Font Family</h4>
-        <select name="classification" className="classificationSelect" onChange={e => setFontFamily(e.target.value)}>
-        {options.map(option => this.renderOption(option.id, selectedOption))}
+        <select name="classification" className="classificationSelect" onChange={this.handleSelectionChange}>
+        {configuration.map(c => this.renderOption(c.id, selectedOption))}
         </select>
       </div>
     );
@@ -37,6 +35,7 @@ class FontFamily extends Component {
 FontFamily.propTypes = {
   activeFormEntry: PropTypes.object,
   setFontFamily: PropTypes.func,
+  configuration: PropTypes.array,
 }
 
 export default FontFamily;
