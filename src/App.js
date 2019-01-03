@@ -15,6 +15,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 10,
+        textColor: ""
       },
       {
         text: 'I am doing well, actually.',
@@ -23,6 +24,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 12,
+        textColor: ""
       },
       {
         text: 'That is great.',
@@ -31,6 +33,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 12,
+        textColor: ""
       },
     ]
   }
