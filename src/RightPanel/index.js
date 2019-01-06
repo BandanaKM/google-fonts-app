@@ -50,6 +50,9 @@ RightPanel.propTypes = {
   setClassification: PropTypes.func,
   setFontVariant: PropTypes.func,
   setFontFamily: PropTypes.func,
+  setFontSize: PropTypes.func,
+  setBackgroundColor: PropTypes.func,
+  setTextColor: PropTypes.func,
   configuration: PropTypes.array,
 }
 
