@@ -13,6 +13,8 @@ class FontForm extends Component {
           isEditing={isEditing}
           handleActive={handleActive}
           fontFamily={entry.fontFamily}
+          fontSize={entry.fontSize}
+          fontVariant={entry.fontVariant}
         >
           {entry}
         </EditFont>

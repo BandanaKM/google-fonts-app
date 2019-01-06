@@ -27,7 +27,7 @@ class App extends Component {
         classification: "",
         fontVariant: "",
         fontFamily: "",
-        fontSize: 10,
+        fontSize: 20,
         textColor: ""
       },
       {
@@ -36,7 +36,7 @@ class App extends Component {
         classification: "",
         fontVariant: "",
         fontFamily: "",
-        fontSize: 12,
+        fontSize: 20,
         textColor: ""
       },
       {
@@ -45,7 +45,7 @@ class App extends Component {
         classification: "",
         fontVariant: "",
         fontFamily: "",
-        fontSize: 12,
+        fontSize: 20,
         textColor: ""
       },
     ]
