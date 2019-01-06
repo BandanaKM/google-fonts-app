@@ -16,6 +16,7 @@ class FontForm extends Component {
           fontSize={entry.fontSize}
           fontVariant={entry.fontVariant}
           backgroundColor={entry.backgroundColor}
+          color={entry.color}
         >
           {entry}
         </EditFont>

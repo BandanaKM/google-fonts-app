@@ -28,7 +28,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: "",
+        color: "",
         backgroundColor: ""
       },
       {
@@ -38,7 +38,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: "",
+        color: "",
         backgroundColor: ""
       },
       {
@@ -48,7 +48,7 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: "",
+        color: "",
         backgroundColor: ""
       },
     ]
@@ -214,6 +214,7 @@ class App extends Component {
           setFontFamily={this.setFontFamily}
           setFontSize={this.setFontSize}
           setBackgroundColor={this.setBackgroundColor}
+          setTextColor={this.setTextColor}
           configuration={this.state.configuration}
         />
       </div>

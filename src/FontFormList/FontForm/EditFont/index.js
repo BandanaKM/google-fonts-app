@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class EditFont extends Component {
   render(){
-    const { handleFormEdits, children, handleActive, fontFamily, fontSize, fontVariant, backgroundColor } = this.props;
+    const { handleFormEdits, children, handleActive, fontFamily, fontSize, fontVariant, backgroundColor, color } = this.props;
     const fontWeight = fontVariant !== 'italic' ? fontVariant : '';
     const fontStyle = fontVariant === 'italic' ? fontVariant : '';
     const fontSizeInPixels = `${fontSize}px`;
     return (
         <div onClick={handleActive}>
           {fontFamily && <link rel="stylesheet" type="text/css" href={`https://fonts.googleapis.com/css?family=${fontFamily}`} />}
-          <textarea type="text" value={children.text} style={{fontWeight, fontStyle, fontFamily, fontSize: fontSizeInPixels, backgroundColor}} className="editFont" onChange={handleFormEdits}>
+          <textarea type="text" value={children.text} style={{fontWeight, fontStyle, fontFamily, fontSize: fontSizeInPixels, backgroundColor, color}} className="editFont" onChange={handleFormEdits}>
           </textarea>
         </div>
     );

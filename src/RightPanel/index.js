@@ -10,7 +10,7 @@ import ColorPicker from './ColorPicker';
 
 class RightPanel extends Component {
   render() {
-    const { formEntries, setClassification, setFontVariant, setFontFamily, setFontSize, setBackgroundColor, configuration } = this.props;
+    const { formEntries, setClassification, setFontVariant, setFontFamily, setFontSize, setBackgroundColor, configuration, setTextColor } = this.props;
     const activeFormEntry = formEntries.find(formEntry => formEntry.isActive);
     return (
       <div className="RightPanel">
@@ -34,6 +34,7 @@ class RightPanel extends Component {
         <ColorPicker
           activeFormEntry={activeFormEntry}
           isTextColor
+          setTextColor={setTextColor}
         />
         <ColorPicker
           activeFormEntry={activeFormEntry}
