@@ -9,7 +9,7 @@ class FontSize extends Component {
     return (
       <div className="FontSize">
         <h4>FontSize</h4>
-        <input type="number" name="quantity" min="1" max="62" value={activeFormEntry.fontSize || 12} onChange={e => setFontSize(e.target.value)}/>
+        <input type="number" name="quantity" min="1" max="62" value={activeFormEntry.fontSize || 20} onChange={e => setFontSize(e.target.value)}/>
       </div>
     )
   }

@@ -23,7 +23,7 @@ class ColorPicker extends Component {
 
   render() {
     const { isTextColor, activeFormEntry } = this.props;
-    const selectedTextColor = activeFormEntry.backgroundColor || "black";
+    const selectedTextColor = activeFormEntry.color || "black";
     const selectedBackgroundColor = activeFormEntry.backgroundColor || "white";
     return (
       <div>
