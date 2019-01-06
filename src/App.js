@@ -28,7 +28,8 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: ""
+        color: "",
+        backgroundColor: ""
       },
       {
         text: 'I am doing well, actually.',
@@ -37,7 +38,8 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: ""
+        color: "",
+        backgroundColor: ""
       },
       {
         text: 'That is great.',
@@ -46,7 +48,8 @@ class App extends Component {
         fontVariant: "",
         fontFamily: "",
         fontSize: 20,
-        textColor: ""
+        color: "",
+        backgroundColor: ""
       },
     ]
   }
@@ -163,6 +166,34 @@ class App extends Component {
     })
   }
 
+  setBackgroundColor = (backgroundColorValue) => {
+    this.setState({
+      formEntries: this.state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          return {
+            ...formEntry,
+            backgroundColor: backgroundColorValue,
+          }
+        }
+        return formEntry;
+      })
+    })
+  }
+
+  setTextColor = (textColorValue) => {
+    this.setState({
+      formEntries: this.state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          return {
+            ...formEntry,
+            color: textColorValue
+          }
+        }
+        return formEntry;
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -182,6 +213,8 @@ class App extends Component {
           setFontVariant={this.setFontVariant}
           setFontFamily={this.setFontFamily}
           setFontSize={this.setFontSize}
+          setBackgroundColor={this.setBackgroundColor}
+          setTextColor={this.setTextColor}
           configuration={this.state.configuration}
         />
       </div>

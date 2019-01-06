@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { SketchPicker } from 'react-color';
 
 class ColorPicker extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      displayColorPicker: false,
-    }
+  state = {
+    displayColorPicker: false,
   }
 
   toggleDisplay = () => {
@@ -16,12 +13,24 @@ class ColorPicker extends Component {
     })
   }
 
+  handleBackgroundColor = (color) => {
+    this.props.setBackgroundColor(color.hex);
+  }
+
+  handleTextColor = (color) => {
+    this.props.setTextColor(color.hex);
+  }
+
   render() {
-    const { textColor } = this.props;
+    const { isTextColor, activeFormEntry } = this.props;
+    const selectedTextColor = activeFormEntry.backgroundColor || "black";
+    const selectedBackgroundColor = activeFormEntry.backgroundColor || "white";
     return (
       <div>
-        <h4>{textColor ? 'Text Color' : 'Background Color'}</h4>
-        {this.state.displayColorPicker && <SketchPicker />}
+        <h4>{isTextColor ? 'Text Color' : 'Background Color'}</h4>
+        {this.state.displayColorPicker &&
+          <SketchPicker onChangeComplete={isTextColor ? this.handleTextColor : this.handleBackgroundColor} color={isTextColor ? selectedTextColor : selectedBackgroundColor}/>
+        }
         <button onClick={this.toggleDisplay}>Go</button>
       </div>
     )
@@ -29,7 +38,10 @@ class ColorPicker extends Component {
 }
 
 ColorPicker.propTypes = {
-  textColor: PropTypes.string,
+  isTextColor: PropTypes.bool,
+  activeFormEntry: PropTypes.object,
+  setBackgroundColor: PropTypes.func,
+  setTextColor: PropTypes.func,
 }
 
 export default ColorPicker;
