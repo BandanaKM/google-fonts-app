@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
+/* this should be a prop */
+
 const options = [
   {id: "regular",
    displayText: "regular"

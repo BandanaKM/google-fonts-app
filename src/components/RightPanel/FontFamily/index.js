@@ -3,21 +3,9 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 class FontFamily extends Component {
-  // state = {
-  //   stylePath: 'https://fonts.googleapis.com/css?family=',
-  // }
-
   renderOption = (id, selectedOption) => (
     <option key={id} value={id} selected={selectedOption === id}>{id}</option>
   )
-
-  // handleSelectionChange = (e) => {
-  //   this.props.setFontFamily(e.target.value);
-  //   this.setState({
-  //     stylePath: `https://fonts.googleapis.com/css?family=${e.target.value}`
-  //   })
-  // }
-
   render() {
     const { activeFormEntry, configuration, setFontFamily } = this.props;
     const selectedOption = activeFormEntry.fontFamily || "Cantora+One";
