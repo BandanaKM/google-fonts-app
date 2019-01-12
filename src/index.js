@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import reducer from './state/reducer';
+import reducer from './state/reducers.js';
 import { createStore } from 'redux';
 import ReactDOM from 'react-dom';
 import './index.css';
