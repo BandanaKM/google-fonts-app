@@ -3,6 +3,22 @@ import './App.css';
 import FontFormList from './FontFormList';
 import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
+import { removeFormEntryAt } from '../state/actions';
+import { connect } from 'react-redux';
+import { selectApplicationState } from '../state/selectors';
+
+const mapStateToProps = state => {
+  const applicationState = selectApplicationState(state);
+  console.log(applicationState, 'APPLICATION STATE');
+
+  return {
+    applicationState,
+  };
+};
+
+const mapDispatchToProps = {
+  removeFormEntryAt,
+};
 
 class App extends Component {
   state = {
@@ -222,4 +238,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

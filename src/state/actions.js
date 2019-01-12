@@ -7,3 +7,5 @@ export const updateFontSize = createAction('UPDATE_FONT_SIZE');
 export const updateTextColor = createAction('UPDATE_TEXT_COLOR');
 export const updateBackgroundColor = createAction('UPDATE_BACKGROUND_COLOR');
 export const setActive = createAction('SET_ACTIVE');
+export const removeFormEntryAt = createAction('REMOVE_FORM_ENTRY_AT');
+export const addEntryAfter = createAction('ADD_ENTRY_AFTER');

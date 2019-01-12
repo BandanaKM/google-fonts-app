@@ -10,6 +10,15 @@ const reducer = handleActions(
     [actions.updateTextColor]: state => state,
     [actions.updateBackgroundColor]: state => state,
     [actions.setActive]: state => state,
+    [actions.addEntryAfter]: state => state,
+
+    [actions.removeFormEntryAt]: (state, payload: index) => ({
+      ...state,
+      formEntries: [
+        ...state.formEntries.slice(0, index),
+        ...state.formEntries.slice(index + 1)
+      ]
+    }),
   },
   {
     configuration: [
