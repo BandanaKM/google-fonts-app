@@ -3,22 +3,60 @@ import * as actions from './actions';
 
 const reducer = handleActions(
   {
-    [actions.updateClassification]: state => state,
-    [actions.updateFontFamily]: state => state,
-    [actions.updateFontVariant]: state => state,
-    [actions.updateFontSize]: state => state,
-    [actions.updateTextColor]: state => state,
-    [actions.updateBackgroundColor]: state => state,
-    [actions.setActive]: state => state,
-    [actions.addEntryAfter]: state => state,
-
-    [actions.removeFormEntryAt]: (state, payload: index) => ({
+    [actions.setFormEntryAt]: (state, payload) => ({
+      ...state,
+      formEntries: state.formEntries.map((formEntry, index) => {
+        if (index === payload.indexToChange) {
+          return {
+            ...formEntry,
+            text: payload.text
+          };
+        }
+         return formEntry;
+      })
+    }),
+    [actions.removeFormEntryAt]: (state, payload) => ({
+      ...state,
+      formEntries: state.formEntries.filter((entry, index) => (payload !== index)),
+    }),
+    [actions.addEntryAfter]: (state, payload) => ({
       ...state,
       formEntries: [
-        ...state.formEntries.slice(0, index),
-        ...state.formEntries.slice(index + 1)
+        ...state.formEntries.slice(0, payload + 1),
+        {
+          text: '',
+          isActive: false,
+        },
+        ...state.formEntries.slice(payload + 1),
       ]
     }),
+    [actions.setActive]: (state, payload) => ({
+      ...state,
+      formEntries: state.formEntries.map((formEntry, index) => {
+        if (index === payload) {
+          return {
+            ...formEntry,
+            isActive: true,
+          }
+        }
+        return {
+          ...formEntry,
+          isActive: false,
+        }
+      })
+    }),
+    [actions.setFieldAt]: (state, payload) => ({
+      ...state,
+      formEntries: state.formEntries.map(formEntry => {
+        if (formEntry.isActive) {
+          return {
+            ...formEntry,
+            [payload.fieldToChange]: payload.value,
+          }
+        }
+        return formEntry;
+      })
+    })
   },
   {
     configuration: [

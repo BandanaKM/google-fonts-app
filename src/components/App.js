@@ -83,6 +83,8 @@ class App extends Component {
        })
    });
 
+  /* filter */
+
   removeFormEntryAt = index => {
     this.setState({
       formEntries: [
@@ -96,18 +98,16 @@ class App extends Component {
     this.setState({
       formEntries: [
         ...this.state.formEntries.slice(0, index + 1),
-        this.newFormEntry(),
+        {
+          text: '',
+          isActive: false,
+        },
         ...this.state.formEntries.slice(index + 1),
       ]
     })
   }
 
-  newFormEntry = () => (
-    {
-      text: '',
-      isActive: false,
-    }
-  )
+  /* pass in payload */
 
   setActive = indexToChange => {
     this.setState({
@@ -126,13 +126,13 @@ class App extends Component {
     })
   }
 
-  setClassification = (classificationValue) => {
+  setFieldAt = (value, fieldToChange) => {
     this.setState({
       formEntries: this.state.formEntries.map(formEntry => {
         if (formEntry.isActive) {
           return {
             ...formEntry,
-            classification: classificationValue
+            [fieldToChange]: value
           }
         }
         return formEntry;
@@ -140,74 +140,28 @@ class App extends Component {
     })
   }
 
-  setFontVariant = (fontVariantValue) => {
-    this.setState({
-      formEntries: this.state.formEntries.map(formEntry => {
-        if (formEntry.isActive) {
-          return {
-            ...formEntry,
-            fontVariant: fontVariantValue,
-          }
-        }
-        return formEntry;
-      })
-    })
+  setClassification = (value) => {
+    this.setFieldAt(value, 'classification');
   }
 
-  setFontFamily = (fontFamilyValue) => {
-    this.setState({
-      formEntries: this.state.formEntries.map(formEntry => {
-        if (formEntry.isActive) {
-          return {
-            ...formEntry,
-            fontFamily: fontFamilyValue,
-          }
-        }
-        return formEntry;
-      })
-    })
+  setFontVariant = (value) => {
+    this.setFieldAt(value, 'fontVariant');
   }
 
-  setFontSize = (fontSizeValue) => {
-    this.setState({
-      formEntries: this.state.formEntries.map(formEntry => {
-        if (formEntry.isActive) {
-          return {
-            ...formEntry,
-            fontSize: fontSizeValue,
-          }
-        }
-        return formEntry;
-      })
-    })
+  setFontFamily = (value) => {
+    this.setFieldAt(value, 'fontFamily');
   }
 
-  setBackgroundColor = (backgroundColorValue) => {
-    this.setState({
-      formEntries: this.state.formEntries.map(formEntry => {
-        if (formEntry.isActive) {
-          return {
-            ...formEntry,
-            backgroundColor: backgroundColorValue,
-          }
-        }
-        return formEntry;
-      })
-    })
+  setFontSize = (value) => {
+    this.setFieldAt(value, 'fontSize');
   }
 
-  setTextColor = (textColorValue) => {
-    this.setState({
-      formEntries: this.state.formEntries.map(formEntry => {
-        if (formEntry.isActive) {
-          return {
-            ...formEntry,
-            color: textColorValue
-          }
-        }
-        return formEntry;
-      })
-    })
+  setBackgroundColor = (value) => {
+    this.setFieldAt(value, 'backgroundColor');
+  }
+
+  setTextColor = (value) => {
+    this.setFieldAt(value, 'color');
   }
 
   render() {
