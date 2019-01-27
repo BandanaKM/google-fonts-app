@@ -23,7 +23,7 @@ const mapDispatchToProps = {
 class App extends Component {
   state = {
     pendingMessage: "",
-    configuration: [
+    fontFamilyData: [
       {
        id: 'Cantora One',
        displayText: 'Cantora One'
@@ -34,6 +34,17 @@ class App extends Component {
       },
       {id: "Playfair Display",
        displayText: "Playfair Display"
+      },
+    ],
+    fontVariantData: [
+      {id: "regular",
+       displayText: "regular"
+      },
+      {id: "bold",
+       displayText: "bold"
+      },
+      {id: "italic",
+       displayText: "italic"
       },
     ],
     formEntries: [
@@ -185,7 +196,8 @@ class App extends Component {
           setFontSize={this.setFontSize}
           setBackgroundColor={this.setBackgroundColor}
           setTextColor={this.setTextColor}
-          configuration={this.state.configuration}
+          fontFamilyData={this.state.fontFamilyData}
+          fontVariantData={this.state.fontVariantData}
         />
       </div>
     );

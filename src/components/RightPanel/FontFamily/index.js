@@ -7,13 +7,13 @@ class FontFamily extends Component {
     <option key={id} value={id} selected={selectedOption === id}>{id}</option>
   )
   render() {
-    const { activeFormEntry, configuration, setFontFamily } = this.props;
+    const { activeFormEntry, fontFamilyData, setFontFamily } = this.props;
     const selectedOption = activeFormEntry.fontFamily || "Cantora+One";
     return(
       <div className="classification">
         <h4>Font Family</h4>
         <select name="classification" className="classificationSelect" onChange={e => setFontFamily(e.target.value)}>
-        {configuration.map(c => this.renderOption(c.id, selectedOption))}
+        {fontFamilyData.map(c => this.renderOption(c.id, selectedOption))}
         </select>
       </div>
     );
@@ -23,7 +23,7 @@ class FontFamily extends Component {
 FontFamily.propTypes = {
   activeFormEntry: PropTypes.object,
   setFontFamily: PropTypes.func,
-  configuration: PropTypes.array,
+  fontFamilyData: PropTypes.array,
 }
 
 export default FontFamily;

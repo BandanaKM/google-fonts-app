@@ -59,7 +59,7 @@ const reducer = handleActions(
     })
   },
   {
-    configuration: [
+    fontFamilyData: [
       {
        id: 'Cantora One',
        displayText: 'Cantora One'
@@ -70,6 +70,17 @@ const reducer = handleActions(
       },
       {id: "Playfair Display",
        displayText: "Playfair Display"
+      },
+    ],
+    fontVariantData: [
+      {id: "regular",
+       displayText: "regular"
+      },
+      {id: "bold",
+       displayText: "bold"
+      },
+      {id: "italic",
+       displayText: "italic"
       },
     ],
     formEntries: [
