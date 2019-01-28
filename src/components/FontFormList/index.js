@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { removeFormEntryAt } from '../../state/actions';
 import './styles.css';
 import FontForm from './FontForm';
+
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+const mapDispatchToProps = {
+  removeFormEntryAt,
+};
 
 class FontFormList extends Component {
   render() {
@@ -33,4 +44,4 @@ FontFormList.propTypes = {
   setActive: PropTypes.func,
 }
 
-export default FontFormList;
+export default connect(mapStateToProps, mapDispatchToProps)(FontFormList);

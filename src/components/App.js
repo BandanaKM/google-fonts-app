@@ -96,15 +96,6 @@ class App extends Component {
 
   /* filter */
 
-  removeFormEntryAt = index => {
-    this.setState({
-      formEntries: [
-        ...this.state.formEntries.slice(0, index),
-        ...this.state.formEntries.slice(index + 1)
-      ]
-    })
-  }
-
   addEntryAfter = index => {
     this.setState({
       formEntries: [
@@ -183,7 +174,6 @@ class App extends Component {
           formEntries={this.state.formEntries}
           toggleIsEditingAt={this.toggleIsEditingAt}
           setFormEntryAt={this.setFormEntryAt}
-          removeFormEntryAt={this.removeFormEntryAt}
           addEntryAfter={this.addEntryAfter}
           pendingMessage={this.state.pendingMessage}
           setActive={this.setActive}
