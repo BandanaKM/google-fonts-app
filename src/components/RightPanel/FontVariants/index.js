@@ -8,7 +8,6 @@ class FontVariants extends Component {
   )
   render() {
     const { activeFormEntry, setFontVariant, fontVariantData } = this.props;
-    console.log(fontVariantData, 'fontVariantData');
     const selectedOption = activeFormEntry.fontVariant || "regular";
     return(
       <div className="properties">

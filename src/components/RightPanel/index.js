@@ -11,7 +11,9 @@ import ColorPicker from './ColorPicker';
 class RightPanel extends Component {
   render() {
     const { formEntries, setClassification, setFontVariant, setFontFamily, setFontSize, setBackgroundColor, fontFamilyData,fontVariantData, setTextColor } = this.props;
-    const activeFormEntry = formEntries.find(formEntry => formEntry.isActive);
+    console.log(formEntries, 'FORM ENTRIES RIGHT PANEL');
+    const activeFormEntry = formEntries.find(formEntry => formEntry.isActive) || {};
+
     return (
       <div className="RightPanel">
         <Classification

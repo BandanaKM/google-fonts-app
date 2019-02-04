@@ -3,37 +3,40 @@ import * as actions from './actions';
 
 const reducer = handleActions(
   {
-    [actions.setFormEntryAt]: (state, payload) => ({
+    [actions.setFormEntryAt]: (state, { payload: { text, index } }) => ({
       ...state,
-      formEntries: state.formEntries.map((formEntry, index) => {
-        if (index === payload.indexToChange) {
+      formEntries: state.formEntries.map((formEntry, i) => {
+        if (i === index) {
           return {
             ...formEntry,
-            text: payload.text
+            text: text
           };
         }
          return formEntry;
       })
     }),
-    [actions.removeFormEntryAt]: (state, payload) => ({
+    [actions.removeFormEntryAt]: (state, { payload: {text, index} }) => ({
       ...state,
-      formEntries: state.formEntries.filter((entry, index) => (payload !== index)),
+      formEntries: state.formEntries.filter((entry, i) => (index !== i)),
     }),
-    [actions.addEntryAfter]: (state, payload) => ({
+    [actions.addEntryAfter]: (state, { payload: { index } }) => {
+      console.log(index, 'INDEX');
+      return {
+        ...state,
+        formEntries: [
+          ...state.formEntries.slice(0, index + 1),
+          {
+            text: '',
+            isActive: false,
+          },
+          ...state.formEntries.slice(index + 1),
+        ]
+      }
+    },
+    [actions.setActive]: (state, { payload: { index } }) => ({
       ...state,
-      formEntries: [
-        ...state.formEntries.slice(0, payload + 1),
-        {
-          text: '',
-          isActive: false,
-        },
-        ...state.formEntries.slice(payload + 1),
-      ]
-    }),
-    [actions.setActive]: (state, payload) => ({
-      ...state,
-      formEntries: state.formEntries.map((formEntry, index) => {
-        if (index === payload) {
+      formEntries: state.formEntries.map((formEntry, i) => {
+        if (i === index) {
           return {
             ...formEntry,
             isActive: true,
@@ -45,13 +48,13 @@ const reducer = handleActions(
         }
       })
     }),
-    [actions.setFieldAt]: (state, payload) => ({
+    [actions.setFieldAt]: (state, { payload: { value, fieldToChange } }) => ({
       ...state,
       formEntries: state.formEntries.map(formEntry => {
         if (formEntry.isActive) {
           return {
             ...formEntry,
-            [payload.fieldToChange]: payload.value,
+            [fieldToChange]: value,
           }
         }
         return formEntry;
