@@ -32,125 +32,6 @@ class App extends Component {
     fontVariantData: PropTypes.array,
     setFieldAt: PropTypes.func,
   }
-  // state = {
-  //   fontFamilyData: [
-  //     {
-  //      id: 'Cantora One',
-  //      displayText: 'Cantora One'
-  //     },
-  //     {
-  //      id: "Oswald",
-  //      displayText: "Oswald"
-  //     },
-  //     {id: "Playfair Display",
-  //      displayText: "Playfair Display"
-  //     },
-  //   ],
-  //   fontVariantData: [
-  //     {id: "regular",
-  //      displayText: "regular"
-  //     },
-  //     {id: "bold",
-  //      displayText: "bold"
-  //     },
-  //     {id: "italic",
-  //      displayText: "italic"
-  //     },
-  //   ],
-  //   formEntries: [
-  //     {
-  //       text: 'Hey Bana, how are you doing?',
-  //       isActive: true,
-  //       classification: "",
-  //       fontVariant: "",
-  //       fontFamily: "",
-  //       fontSize: 20,
-  //       color: "",
-  //       backgroundColor: ""
-  //     },
-  //     {
-  //       text: 'I am doing well, actually.',
-  //       isActive: false,
-  //       classification: "",
-  //       fontVariant: "",
-  //       fontFamily: "",
-  //       fontSize: 20,
-  //       color: "",
-  //       backgroundColor: ""
-  //     },
-  //     {
-  //       text: 'That is great.',
-  //       isActive: false,
-  //       classification: "",
-  //       fontVariant: "",
-  //       fontFamily: "",
-  //       fontSize: 20,
-  //       color: "",
-  //       backgroundColor: ""
-  //     },
-  //   ]
-  // }
-
-   // setFormEntryAt = (text, indexToChange) =>
-   //   this.setState({
-   //     formEntries: this.state.formEntries.map((formEntry, index) => {
-   //       if (index === indexToChange) {
-   //         return {
-   //           ...formEntry,
-   //           text
-   //         };
-   //       }
-   //        return formEntry;
-   //     })
-   // });
-
-  /* filter */
-
-  // addEntryAfter = index => {
-  //   this.setState({
-  //     formEntries: [
-  //       ...this.state.formEntries.slice(0, index + 1),
-  //       {
-  //         text: '',
-  //         isActive: false,
-  //       },
-  //       ...this.state.formEntries.slice(index + 1),
-  //     ]
-  //   })
-  // }
-
-  /* pass in payload */
-
-  // setActive = indexToChange => {
-  //   this.setState({
-  //     formEntries: this.state.formEntries.map((formEntry, index) => {
-  //       if (index === indexToChange) {
-  //         return {
-  //           ...formEntry,
-  //           isActive: true,
-  //         }
-  //       }
-  //       return {
-  //         ...formEntry,
-  //         isActive: false,
-  //       }
-  //     })
-  //   })
-  // }
-
-  // setFieldAt = (value, fieldToChange) => {
-  //   this.setState({
-  //     formEntries: this.state.formEntries.map(formEntry => {
-  //       if (formEntry.isActive) {
-  //         return {
-  //           ...formEntry,
-  //           [fieldToChange]: value
-  //         }
-  //       }
-  //       return formEntry;
-  //     })
-  //   })
-  // }
 
   setClassification = (value) => {
     this.props.setFieldAt(value, 'classification');
@@ -187,9 +68,6 @@ class App extends Component {
         <FontFormList
           formEntries={formEntries}
           toggleIsEditingAt={this.toggleIsEditingAt}
-          // setFormEntryAt={this.setFormEntryAt}
-          // addEntryAfter={this.addEntryAfter}
-          // setActive={this.setActive}
         />
         <RightPanel
           formEntries={formEntries}
