@@ -60,8 +60,6 @@ class App extends Component {
   render() {
     const { fontFamilyData, formEntries, fontVariantData } = this.props;
 
-    console.log(formEntries, 'FORM ENTRIES');
-
     return (
       <div className="App">
         <LeftPanel />
